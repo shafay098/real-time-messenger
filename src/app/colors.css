@@ -1,0 +1,17 @@
+:root {
+  --primaryColor: #1572d3;
+  --sceondaryBlueClr: #454a68;
+  --secondaryGrayClr: #5e5e5e;
+  --text-clr: #484848;
+  --text-v2-clr: #242424;
+  --text-v3-clr: #333;
+  --text-v4-clr: #383838;
+  --text-v5-clr: #272727;
+  --text-v6-clr: #3e3e3e;
+  --text-light-clr: #b6b6b6;
+  --text-light-v2-clr: #d6d6d6;
+  --text-med-light-clr: #6d6d6d;
+  --whiteClr: #f5f5f5;
+  --bgColor: #f7f8f4;
+  --footer-bg-clr: #051c34;
+}

@@ -1,0 +1,66 @@
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button[variant="primary"] {
+  background-color: var(--primaryColor);
+  color: white;
+  font-family: var(--Poppins);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.button[variant="primary-light"] {
+  background-color: rgba(21, 114, 211, 0.1);
+  color: var(--primaryColor);
+  font-family: var(--Poppins);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.button[variant="secondary"] {
+  background-color: gray;
+  color: white;
+}
+
+.button[variant="noBorder"] {
+  background-color: white;
+  border: none;
+  color: black !important;
+}
+
+.button[variant="outlined"] {
+  border: 1px solid var(--primary-clr);
+  background: white;
+  color: var(--primary-clr);
+  font-family: var(--Poppins);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Optional: Styles for icons */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconLeft {
+  margin-right: 8px;
+}
+
+.iconRight {
+  margin-left: 8px;
+}

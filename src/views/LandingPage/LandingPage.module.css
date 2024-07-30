@@ -1,0 +1,365 @@
+.imageContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 313px;
+  z-index: 2;
+}
+
+.swiper {
+  padding: 3rem rem;
+  height: 700;
+}
+
+.textConainerSec1 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.imagePayDiv {
+  display: flex;
+  gap: 1rem;
+}
+
+.badgeStyle {
+  display: flex;
+  padding: 16px 32px;
+  width: max-content;
+  justify-content: center;
+  /* margin: 0 auto; */
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(21, 114, 211, 0.1);
+}
+
+.badgeStyle > p {
+  color: var(--primaryColor);
+  font-weight: 500;
+}
+
+.badgeRootCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.workingStepRootCont {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.iconContStep {
+  display: flex;
+  width: 112px;
+  height: 112px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: #ecf5ff;
+}
+
+.iconContStep > svg {
+  color: #1572d3;
+}
+
+.stepCardTextCont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stepCardTextCont > p:nth-of-type(2) {
+  width: 200px;
+}
+
+/* swiper logo banner css */
+
+.swiper_container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.swiper_wrapper {
+  display: flex;
+  width: calc(6 * 100%);
+  animation: swiperAnimation 10s linear infinite;
+}
+
+.swiper_slide {
+  flex: 0 0 auto;
+  width: calc(20% / 6);
+  height: 50px;
+  position: relative;
+}
+
+.swiper_slide > img {
+  object-fit: contain;
+}
+
+@keyframes swiperAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.bgCarDiv {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-image: url("/images/bgCar.png");
+  background-repeat: no-repeat;
+  background-size: 99% 96%;
+  background-position: -2375% 0%;
+}
+
+.boxCont {
+  border-radius: 8px;
+  background: rgba(21, 114, 211, 0.1);
+  padding: 16px 32px;
+  width: max-content;
+}
+
+.boxCont > p {
+  color: var(--primaryColor) !important;
+  font-weight: 500;
+}
+
+.sec2RootCont {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.textBoxCont {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+}
+
+.boxImageExp {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #ecf5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxImageExp > svg {
+  color: #1572d3;
+}
+
+.expCardRootCont {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.expoCardRootCont {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.boxBlueSec2 {
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(21, 114, 211, 0.1);
+}
+
+.boxBlueSec2 > p {
+  color: #1572d3;
+  font-family: var(--Poppins);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sec2HeadingCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 24px;
+}
+
+.section4RootCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mobileDiv {
+  background-image: url("/images/iphone.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 468px;
+  height: 800px;
+  overflow: hidden;
+  left: 200px;
+  z-index: 5;
+  position: relative;
+}
+
+.colClass {
+  position: relative !important;
+  z-index: 5 !important;
+  height: 400px;
+}
+
+.blueUnderLine {
+  color: #1572d3;
+  position: relative;
+}
+
+.blueUnderLine::after {
+  display: flex;
+  position: absolute;
+  content: "";
+  background-image: url(/images/underline.png);
+  height: 20px !important;
+  width: 140px !important;
+  background-repeat: no-repeat;
+  bottom: -6px;
+  left: 0;
+}
+
+.popularCardSwiper {
+  padding: 3rem 1rem;
+}
+
+@media screen and (max-width: 1440px) {
+  .mobileDiv {
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mobileDiv {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    margin: 0 auto;
+    left: 0;
+  }
+  .sec2RootCont {
+    margin-top: 7rem;
+  }
+
+  .bgCarDiv {
+    display: flex;
+    height: 120%;
+    align-items: center;
+    background-image: url("/images/bgCar.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 100% 10%;
+    justify-content: center;
+  }
+
+  .swiper_wrapper {
+    display: flex;
+    width: calc(12 * 100%);
+    animation: swiperAnimation 10s linear infinite;
+  }
+
+  .textConainerSec1 > h2 {
+    text-align: center;
+  }
+
+  .textConainerSec1 > p {
+    text-align: center;
+  }
+
+  .imagePayDiv {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carImageSetting {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageContainer {
+    width: 90%;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .blueUnderLine::after {
+    display: flex;
+    position: absolute;
+    content: "";
+    background-image: url(/images/underline.png);
+    height: 20px !important;
+    width: 110px !important;
+    background-repeat: no-repeat;
+    bottom: -10px;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper_slide {
+    width: calc(30% / 6);
+  }
+
+  .mobileDiv {
+    width: 400px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+
+  .blueUnderLine::after {
+    height: 20px !important;
+    width: 85px !important;
+    bottom: -15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .mobileDiv {
+    width: 300px;
+    height: 600px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 200px;
+  }
+
+  .blueUnderLine::after {
+    height: 20px !important;
+    width: 80px !important;
+    bottom: -15px;
+  }
+}

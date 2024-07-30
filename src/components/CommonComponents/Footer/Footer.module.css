@@ -1,0 +1,159 @@
+.headingText {
+  color: black;
+  font-size: 24px;
+  font-family: var(--Poppins);
+  font-weight: 700;
+}
+
+.firstColDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.listRootContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.paraText {
+  color: var(--text-light-v2-clr);
+  font-family: var(--Poppins);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.linkStyle {
+  color: var(--text-light-v2-clr);
+  font-family: var(--Poppins);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleLink {
+  color: white;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.inputClass > input {
+  border: none !important;
+  border-bottom: 1px solid black !important;
+  padding-left: 0px !important;
+  width: 80%;
+}
+
+.inputClass > input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid black !important;
+}
+
+.button {
+  /* background-color: orange !important; */
+  padding-left: 0px !important;
+  border-bottom: 1px solid black !important;
+  border-radius: 0px !important;
+  padding-bottom: 5px !important;
+  padding-right: 0px !important;
+}
+
+.subscribeCont {
+  display: flex;
+  gap: 16px;
+}
+
+.subscribeCont > svg {
+  color: white;
+}
+
+.subscribeText {
+  color: black;
+  font-family: var(--Poppins);
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  height: 35px;
+}
+
+.subscribeText:hover {
+  cursor: pointer;
+}
+
+.hrLineStyle {
+  margin: 2rem 0px;
+  height: 3px;
+  background-color: #575757;
+}
+
+.paraLast {
+  font-family: var(--Poppins);
+  color: var(--text-light-v2-clr);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.newsletterDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lastFooterSecCont {
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .firstColDiv {
+    margin-bottom: 2rem;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .newsletterDiv {
+    margin-top: 2rem;
+  }
+
+  .subscribeCont {
+    display: flex;
+    gap: 10px;
+  }
+  .subscribeCont > div {
+    width: 90%;
+  }
+  .inputClass > input {
+    width: 90%;
+  }
+}
+
+.footerRootCont {
+  background-color: var(--footer-bg-clr);
+  position: relative;
+  z-index: 5;
+}
+
+.detailDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.detailDiv > svg {
+  color: white;
+}
+
+.detailRootDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

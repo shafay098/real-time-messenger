@@ -1,0 +1,54 @@
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 5px;
+  padding-left: 10px;
+  /* padding-right: 2rem; Adjust for the icon space */
+  width: 100%;
+  border: 1px solid black;
+  pad: 10px;
+  box-sizing: border-box;
+}
+
+/* .input:focus-visible {
+  border: none !important;
+  outline: none !important;
+} */
+
+.icon {
+  position: absolute;
+  right: 0.5rem;
+  cursor: pointer;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 1rem; */
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.icon {
+  position: absolute;
+  right: 0.5rem;
+  cursor: pointer;
+}
