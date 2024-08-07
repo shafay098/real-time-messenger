@@ -1,30 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import classes from "./Input.module.css";
-import { mergeClass } from "@/utils/HelperFunctions"; // Adjust the path as necessary
+import classes from "./formikInput.module.css";
+import { mergeClass } from "@/src/utils/HelperFunctions"; // Adjust the path as necessary
 
-const Input = ({
+const FormikInput = ({
   type = "text",
   value,
-  setValue,
+  onChange = () => {},
   label,
   inputContainerClass,
   labelClass,
   inputPropClass,
-  hanldeBlur,
+  handleBlur, // Corrected prop name
   error = "",
   ...props
 }) => {
-  const [inputValue, setInputValue] = useState(value || "");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleInputChange = (e) => {
-    const newValue = e.target.value;
-    setInputValue(newValue);
-    if (setValue) {
-      setValue(newValue);
-    }
-  };
+  useEffect(() => {
+    setShowPassword(false);
+  }, [type]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -47,15 +42,16 @@ const Input = ({
         )}
       >
         <input
-          onBlur={hanldeBlur && hanldeBlur}
+          name={props.name}
+          onBlur={handleBlur}
           type={inputType}
-          value={inputValue}
-          onChange={handleInputChange}
+          value={value}
+          onChange={onChange}
           {...props}
           className={mergeClass(
             classes.input,
             inputPropClass && inputPropClass,
-            error && "border-red-700"
+            error ? classes?.error : classes?.noError
           )}
         />
         {type === "password" && (
@@ -80,4 +76,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default FormikInput;

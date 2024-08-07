@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { LandingPage } from "@/views/LandingPage/LandingPage";
+import { LandingPage } from "@/src/views/LandingPage/LandingPage";
 
 export default function Home() {
   return <LandingPage />;
