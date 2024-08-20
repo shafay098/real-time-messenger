@@ -19,6 +19,7 @@ model User {
   email String? @unique
   emailVerified DateTime?
   image String?
+  createdAt DateTime @default(now())
   hashedPassword String?
   updatedAt DateTime? @updatedAt
   converstationIds String[] @db.ObjectId

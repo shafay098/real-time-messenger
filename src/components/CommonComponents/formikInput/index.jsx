@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import classes from "./formikInput.module.css";
-import { mergeClass } from "@/src/utils/HelperFunctions"; // Adjust the path as necessary
+import { mergeClass } from "@/utils/HelperFunctions"; // Adjust the path as necessary
 
 const FormikInput = ({
   type = "text",
