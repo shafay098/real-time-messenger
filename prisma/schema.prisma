@@ -22,8 +22,8 @@ model User {
   createdAt DateTime @default(now())
   hashedPassword String?
   updatedAt DateTime? @updatedAt
-  converstationIds String[] @db.ObjectId
-  converstaions Converstaion[] @relation(fields: [converstationIds], references: [id] )
+  conversationIds String[] @db.ObjectId
+  conversation Conversation[] @relation(fields: [conversationIds], references: [id] )
   seenMessageIds String[] @db.ObjectId
   seenMessages Message[] @relation("Seen" , fields: [seenMessageIds] , references: [id])
   accounts Account[]
@@ -38,19 +38,20 @@ model Account {
   hashedPassword String?
   providerAccountId String
   refreshToken String? @db.String
-  accessToken String? @db.String // Correct field name
+  access_token String? @db.String // Correct field name
   expires_at Int?
   token_type String?
   scope String?
   id_token String? @db.String
   session_state String?
+  createdAt DateTime @default(now())
 
   user User @relation(fields: [userId] , references: [id] , onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
-model Converstaion {
+model Conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   created_at DateTime @default(now())
   lastMessageAt DateTime @default(now())
@@ -71,7 +72,7 @@ model Message {
   seenIds String[] @db.ObjectId
   seen User[] @relation("Seen" , fields: [seenIds] , references: [id])
   conversationId String @db.ObjectId
-  conversation Converstaion @relation(fields: [conversationId], references: [id])
+  conversation Conversation @relation(fields: [conversationId], references: [id])
   senderId String @db.ObjectId
   sender User @relation(fields: [senderId] , references: [id] , onDelete: Cascade)
 

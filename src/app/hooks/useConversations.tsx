@@ -1,14 +1,16 @@
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
-const useConverstaion = () => {
+const useConversation = () => {
+  console.log("in converstation");
   const params = useParams();
   const conversationId = useMemo(() => {
-    if (!params?.conversationId) {
-      return;
+    console.log("🚀 ~ in memo", "sss");
+    if (!params?.conversationsId) {
+      return null;
     }
-    return params.conversationId;
-  }, [params?.conversationId]);
+    return params.conversationsId;
+  }, [params?.conversationsId]);
 
   const isOpen = useMemo(() => !!conversationId, [conversationId]);
 
@@ -21,4 +23,4 @@ const useConverstaion = () => {
   );
 };
 
-export default useConverstaion;
+export default useConversation;

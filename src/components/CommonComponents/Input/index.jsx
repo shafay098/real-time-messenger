@@ -11,7 +11,7 @@ const Input = ({
   inputContainerClass,
   labelClass,
   inputPropClass,
-  hanldeBlur,
+  handleBlur,
   error = "",
   ...props
 }) => {
@@ -47,7 +47,7 @@ const Input = ({
         )}
       >
         <input
-          onBlur={hanldeBlur && hanldeBlur}
+          onBlur={handleBlur && hanldeBlur}
           type={inputType}
           value={inputValue}
           onChange={handleInputChange}

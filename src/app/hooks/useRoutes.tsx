@@ -7,19 +7,20 @@ import { HiUsers } from "react-icons/hi2";
 import { VscSignOut } from "react-icons/vsc";
 
 import { signOut } from "next-auth/react";
-import useConverstaion from "./useConverstaions";
+import useConverstaion from "./useConversations";
 
 const useRoutes = () => {
   const pathname = usePathname();
   const { conversationId } = useConverstaion();
+  console.log("🚀 ~ useRoutes ~ conversationId:", !!conversationId);
 
   const routes = useMemo(
     () => [
       {
         label: "Chat",
-        href: "/converstaions",
+        href: "/conversations",
         icon: HiChat,
-        active: pathname === "/converstaions" || !!conversationId,
+        active: pathname === "/conversations" || !!conversationId,
       },
       {
         label: "Users",
@@ -29,9 +30,12 @@ const useRoutes = () => {
       },
       {
         label: "Logout",
-        href: "#",
+        href: "/",
         icon: VscSignOut,
-        onclick: () => signOut,
+        onclick: () => {
+          console.log("is being clicked!");
+          signOut();
+        },
       },
     ],
     [pathname, conversationId]

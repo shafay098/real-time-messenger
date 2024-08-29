@@ -2,7 +2,7 @@
 
 import React from "react";
 import useRoutes from "@/app/hooks/useRoutes";
-import useConverstaion from "@/app/hooks/useConverstaions";
+import useConverstaion from "@/app/hooks/useConversations";
 import MobileItem from "./MobileItem";
 
 const MobileFooter = () => {

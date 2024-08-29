@@ -41,7 +41,8 @@ export const LandingPage = () => {
       setSubmitLoading(true);
       axios
         .post("/api/register", values)
-        .then(() => {
+        .then((res) => {
+          console.log("🚀 ~ .then ~ res:", res);
           toast.success("succesfull registeres");
           router.push("/users");
         })
@@ -129,7 +130,7 @@ export const LandingPage = () => {
                         ? loginInFormik.errors.email
                         : ""
                     }
-                    hanldeBlur={loginInFormik.handleBlur}
+                    handleBlur={loginInFormik.handleBlur}
                   />
 
                   <label
@@ -184,7 +185,7 @@ export const LandingPage = () => {
                         ? signUpFormik.errors.name
                         : ""
                     }
-                    hanldeBlur={signUpFormik.handleBlur}
+                    handleBlur={signUpFormik.handleBlur}
                   />
 
                   <label
@@ -206,7 +207,7 @@ export const LandingPage = () => {
                         ? signUpFormik.errors.email
                         : ""
                     }
-                    hanldeBlur={signUpFormik.handleBlur}
+                    handleBlur={signUpFormik.handleBlur}
                   />
 
                   <label

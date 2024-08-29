@@ -55,6 +55,9 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
+      console.log("🚀 ~ signIn ~ profile:", profile);
+      console.log("🚀 ~ signIn ~ account:", account);
+      console.log("🚀 ~ signIn ~ user:", user);
       if (account.provider === "github" || account.provider === "google") {
         const existingUser = await prisma.user.findUnique({
           where: { email: user.email },
@@ -77,7 +80,7 @@ export const authOptions: AuthOptions = {
               providerAccountId: account.providerAccountId,
               type: account.type,
               refreshToken: account.refresh_token,
-              accessToken: account.access_token,
+              access_token: account.access_token,
               expires_at: account.expires_at,
               token_type: account.token_type,
               scope: account.scope,
@@ -89,6 +92,16 @@ export const authOptions: AuthOptions = {
       }
       return true;
     },
+
+    // async redirect({ baseUrl, url }) {
+    //   console.log("🚀 ~ redirect ~ url:", url);
+    //   console.log("🚀 ~ redirect ~ baseUrl:", baseUrl);
+    // },
+
+    // async session({ session, user }) {
+    //   console.log("🚀 ~ session ~ user:", user);
+    //   console.log("🚀 ~ session ~ session:", session);
+    // },
     // async session({ session, user }) {
     //   session.user.email = user.email;
     //   return session;
@@ -100,6 +113,7 @@ export const authOptions: AuthOptions = {
     //   return token;
     // },
   },
+
   debug: process.env.NODE_ENV === "development",
   session: {
     strategy: "jwt",

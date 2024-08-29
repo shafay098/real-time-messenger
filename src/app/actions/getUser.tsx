@@ -3,6 +3,7 @@ import getSession from "./getSession";
 
 const getUsers = async () => {
   const sessions = await getSession();
+  console.log("🚀 ~ getUsers ~ sessions:", sessions?.user?.email);
 
   if (!sessions?.user?.email) {
     return [];
@@ -15,12 +16,13 @@ const getUsers = async () => {
       },
       where: {
         NOT: {
-          email: sessions.user.email,
+          email: sessions?.user?.email,
         },
       },
     });
     return users;
   } catch (err) {
+    console.log("🚀 ~ getUsers ~ err:", err);
     return [];
   }
 };

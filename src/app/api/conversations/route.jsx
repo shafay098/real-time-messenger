@@ -1,14 +1,12 @@
 import getCurrentUser from "../../actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import prisma from "../../libs/prismadb";
-import { connect } from "http2";
-import { equal } from "assert";
-import { json } from "stream/consumers";
 
 export async function POST(req) {
   try {
     const currentUser = await getCurrentUser();
-    const body = await request.json();
+    const body = await req.json();
+    console.log("🚀 ~ POST ~ body:", body);
     const { userId, isGroup, members, name } = body;
     if (!currentUser?.id || !currentUser?.email) {
       return new NextResponse("unAuthorized", { status: 401 });
@@ -18,11 +16,11 @@ export async function POST(req) {
       return new NextResponse("Invalid Daata", { status: 400 });
     }
     if (isGroup) {
-      const newConversations = await prisma.converstaion.create({
+      const newConversations = await prisma.conversation.create({
         data: {
           name,
           isGroup,
-          usesr: {
+          users: {
             connect: [
               ...members.map((member) => ({ id: member?.value })),
               { id: currentUser.id },
@@ -36,7 +34,7 @@ export async function POST(req) {
 
       return NextResponse.json(newConversations);
     }
-    const existingConversations = await prisma.converstaion.findMany({
+    const existingConversations = await prisma.conversation.findMany({
       where: {
         OR: [
           {
@@ -59,7 +57,7 @@ export async function POST(req) {
       return NextResponse.json(singleConversation);
     }
 
-    const newConversation = await prisma.converstaion.create({
+    const newConversation = await prisma.conversation.create({
       data: {
         users: {
           connect: [
@@ -79,6 +77,10 @@ export async function POST(req) {
 
     return NextResponse.json(newConversation);
   } catch (err) {
-    return new NextResponse("Internal Server Error", { status: 500 });
+    console.log("🚀 ~ POST ~ err:", err);
+    return new NextResponse("Internal Server Error", {
+      status: 500,
+      message: err?.message,
+    });
   }
 }
