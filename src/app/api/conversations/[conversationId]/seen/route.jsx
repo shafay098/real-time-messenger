@@ -74,8 +74,6 @@ export async function POST(req, { params }) {
       updatedMessage
     );
     return NextResponse.json(updatedMessage);
-
-    return NextResponse.json(updatedMessage);
   } catch (e) {
     console.log(e);
     return new NextResponse("Internal Server Error", {

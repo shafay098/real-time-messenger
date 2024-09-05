@@ -8,7 +8,6 @@ import { pusherClient } from "@/app/libs/pusher";
 // import { find } from "lodash";
 
 const Body = ({ initialMessages }) => {
-  
   const [messages, setMessages] = useState(initialMessages);
   const bottomRef = useRef(null);
   const { conversationId } = useConversation();
@@ -32,12 +31,24 @@ const Body = ({ initialMessages }) => {
       bottomRef?.current?.scrollIntoView();
     };
 
+    const updateMessageHandler = (FullMessageType) => {
+      setMessages((current) =>
+        current.map((currentMessage) => {
+          if (currentMessage.id === FullMessageType.id) {
+            return FullMessageType;
+          }
+          return currentMessage;
+        })
+      );
+    };
+
     pusherClient.bind("messages:new", messageHandler);
-    pusherClient.bind('message:update' , updateMessageHandler);
+    pusherClient.bind("message:update", updateMessageHandler);
 
     return () => {
       pusherClient.unsubscribe(conversationId);
-      pusherClient.unbind("messages:new");
+      pusherClient.unbind("messages:new", messageHandler);
+      pusherClient.unbind("message:update", updateMessageHandler);
     };
   }, [conversationId]);
 

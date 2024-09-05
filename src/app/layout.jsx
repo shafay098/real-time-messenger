@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ToasterContext from "./context/TosterContext";
 import AuthContext from "./context/AuthContext";
+import ActiveStatus from "../components/ProjectComponents/ActiveStatus";
 // import { Footer } from "@/components/CommonComponents/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--Inter" });
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
       <body className={"bodyContainerStyle"}>
         <AuthContext>
           <ToasterContext />
+          <ActiveStatus />
           {children}
         </AuthContext>
       </body>
