@@ -2,13 +2,16 @@
 
 import Avatar from "@/components/ProjectComponents/Avatar/Avatar";
 import { useSession } from "next-auth/react";
-import React from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
+import ImageModal from "./ImageModal";
 
 const MessageBox = ({ data, isLast }) => {
+  console.log("🚀 ~ MessageBox ~ data:", data);
   console.log("🚀 ~ MessageBox ~ isLast:", isLast);
   const sessions = useSession();
+  const [imageModalOpen, setImageModalOpen] = useState(false);
   const isOwn = sessions?.data?.user?.email === data?.sender?.email;
   console.log("🚀 ~ MessageBox ~ isOwn:", isOwn);
   const seenList = (data?.seen || [])
@@ -38,8 +41,14 @@ const MessageBox = ({ data, isLast }) => {
           </div>
         </div>
         <div className={message}>
+          <ImageModal
+            src={data?.images}
+            isOpen={imageModalOpen}
+            onClose={() => setImageModalOpen(false)}
+          />
           {data?.images ? (
             <Image
+              onClick={() => setImageModalOpen(true)}
               alt="image"
               height={288}
               width={288}

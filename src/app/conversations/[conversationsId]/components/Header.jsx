@@ -6,6 +6,7 @@ import Link from "next/link";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
 import Avatar from "../../../../components/ProjectComponents/Avatar/Avatar";
 import ProfileDrawer from "./ProfileDrawer";
+import AvatarGroup from "../../../../components/ProjectComponents/AvatarGroup";
 
 const Header = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
@@ -34,7 +35,12 @@ const Header = ({ conversation }) => {
           >
             <HiChevronLeft size={32} />
           </Link>
-          <Avatar user={otherUser} />
+          {conversation.isGroup ? (
+            <AvatarGroup users={conversation?.users} />
+          ) : (
+            <Avatar user={otherUser} />
+          )}
+
           <div className="flex flex-col">
             <div>{conversation?.name || otherUser?.name}</div>
             <div className="texst-sm font-light text-neutral-500">
