@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import getCurrentUser from "../../../actions/getCurrentUser";
-import prisma from "../../../libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import { pusherServer } from "../../../libs/pusher";
 
 export async function DELETE(req, { params }) {
