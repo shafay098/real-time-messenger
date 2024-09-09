@@ -12,11 +12,14 @@ import Avatar from "@/components/ProjectComponents/Avatar/Avatar";
 import Modal from "./Modal";
 import ConfirmModal from "./ConfirmModal";
 import AvatarGroup from "@/components/ProjectComponents/AvatarGroup";
+import useActiveList from "../../../hooks/useActiveList";
 
 const ProfileDrawer = ({ data, isOpen, onClose }) => {
   const otherUser = useOtherUser(data);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email) !== -1;
 
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), "pp");
@@ -30,8 +33,8 @@ const ProfileDrawer = ({ data, isOpen, onClose }) => {
     if (data?.isGroup) {
       return `${data?.users?.length} members`;
     }
-    return "Active";
-  }, [data]);
+    return isActive ? "Active" : "Offline";
+  }, [data, isActive]);
 
   return (
     <>
