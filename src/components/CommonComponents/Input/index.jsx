@@ -11,6 +11,8 @@ const Input = ({
   inputContainerClass,
   labelClass,
   inputPropClass,
+  handleBlur,
+  error = "",
   ...props
 }) => {
   const [inputValue, setInputValue] = useState(value || "");
@@ -40,27 +42,38 @@ const Input = ({
       <div
         className={mergeClass(
           classes.inputContainer,
-          inputContainerClass && inputContainerClass
+          inputContainerClass && inputContainerClass,
+          "flex flex-col"
         )}
       >
         <input
+          onBlur={handleBlur && hanldeBlur}
           type={inputType}
           value={inputValue}
           onChange={handleInputChange}
           {...props}
           className={mergeClass(
             classes.input,
-            inputPropClass && inputPropClass
+            inputPropClass && inputPropClass,
+            error && "border-red-700"
           )}
         />
         {type === "password" && (
           <span
-            className={classes.icon}
+            className={mergeClass(
+              classes.icon,
+              "h-max my-auto mx-auto flex flex-col mt-1"
+            )}
             onClick={togglePasswordVisibility}
             aria-label="Toggle password visibility"
           >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
+            {showPassword ? <FaEyeSlash size={22} /> : <FaEye size={22} />}
           </span>
+        )}
+        {error && (
+          <div className="flex flex-row text-left w-full mt-1">
+            <p className="text-red-600 text-lg">{error}</p>
+          </div>
         )}
       </div>
     </div>

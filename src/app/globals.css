@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  height: 100%;
+}
+
 /* .htmlClass {
   position: relative;
 } */
 
-.bodyContainerStyle::after {
+/* .bodyContainerStyle::after {
   position: absolute;
   content: "";
   z-index: 1;
@@ -18,7 +22,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url("/images/frame-landingpage.png");
-}
+} */
 
 /* @media screen and (max-width: 1090px) {
   .bodyContainerStyle::before {
@@ -52,7 +56,7 @@
   line-height: 1.2em; /* Adjust this value to match your line height */
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   .bodyContainerStyle::after {
     position: absolute;
     content: "";
@@ -81,4 +85,4 @@
     background-repeat: no-repeat;
     background-image: url("/images/frame-landingpage.png");
   }
-}
+} */
